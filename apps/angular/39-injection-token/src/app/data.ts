@@ -1,1 +1,6 @@
-export const DEFAULT_TIMER = 1000;
+import { InjectionToken } from '@angular/core';
+
+export const TIMER = new InjectionToken<number>('TIMER', {
+  providedIn: 'root',
+  factory: () => 1000,
+});
