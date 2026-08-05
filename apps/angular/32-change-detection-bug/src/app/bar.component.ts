@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-bar',
   template: `
-    BarComponent
+    Bar Component
   `,
 })
 export class BarComponent {}
