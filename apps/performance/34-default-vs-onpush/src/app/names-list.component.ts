@@ -1,9 +1,10 @@
 import { CDFlashingDirective } from '@angular-challenges/shared/directives';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { MatDivider, MatList, MatListItem } from '@angular/material/list';
 
 @Component({
   selector: 'app-names-list',
-  imports: [CDFlashingDirective],
+  imports: [CDFlashingDirective, MatList, MatListItem, MatDivider],
   template: `
     <mat-list class="flex w-full">
       @if (namesList()?.length === 0) {
