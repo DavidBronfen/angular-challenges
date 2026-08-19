@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  effect,
+  computed,
   model,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +31,10 @@ import { FormsModule } from '@angular/forms';
         Better GPU
       </div>
     </section>
+
+    @if (showMessage()) {
+      <p>Price increased!</p>
+    }
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -39,14 +43,5 @@ export class AppComponent {
   ram = model(false);
   gpu = model(false);
 
-  constructor() {
-    /* 
-      Explain for your junior team mate why this bug occurs ...
-    */
-    effect(() => {
-      if (this.drive() || this.ram() || this.gpu()) {
-        alert('Price increased!');
-      }
-    });
-  }
+  showMessage = computed(() => this.drive() || this.ram() || this.gpu());
 }
